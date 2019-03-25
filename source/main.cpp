@@ -5,6 +5,7 @@
 #include <map>
 
 #include <citro2d.h>
+#include <string>
 
 #include "MenuManager.hpp"
 
@@ -21,7 +22,7 @@ int main(int argc, char* argv[])
 	C3D_RenderTarget* bottom = C2D_CreateScreenTarget(GFX_BOTTOM, GFX_LEFT);
 
 	MenuManager menuManager;
-	std::map<const char*, std::function<void (void)>> menuHandlers;
+	std::map<std::string, std::function<void (void)>> menuHandlers;
 	menuHandlers.insert(std::make_pair("MainMenu", [&menuManager, &menuHandlers]() {
 		menuManager.ClearMenu();
 		menuManager.AddMenuItem("Browse1234 Category", menuHandlers["BrowseMenu"]);
