@@ -5,11 +5,15 @@
 #include <functional>
 #include <memory>
 
+struct MenuEntry {
+  C2D_Text text;
+  std::function<void()> callback;
+};
+
 class MenuManager {
 private:
   C2D_TextBuf textBuffer;
-  std::vector<C2D_Text> menuElementTexts;
-  std::vector<std::function<void (void)>> menuElementCallbacks;
+  std::vector<MenuEntry>* menuElements;
 
   uint cursorIndex = 0;
 public:
